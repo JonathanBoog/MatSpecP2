@@ -13,8 +13,14 @@ def dot_product(vec_1, vec_2):
     Övrigt: Denna funktion bygger inte på NumPy:s implementering
     av skalärprodukt.
     '''
-    result = None
+    
     # Implementera koden nedan
+    result = 0
+    if len(vec_1) == len(vec_2):
+        for i in range(len(vec_1)):
+            result += vec_1[i]*vec_2[i]
+    else:
+        result = None
 
     return result
 
@@ -27,10 +33,14 @@ def is_orthogonal(koord_axlar):
         Om ortogonala axlar: True
         Om ej ortogonala axlar: False
     '''
-    result = False
     # Här sker kontrollen
     # som eventuellt ställer om variabeln result
     # ...
+    if koord_axlar[0][0] == koord_axlar[1][1] and koord_axlar[0][1] == - koord_axlar[1][0]:
+        result = True
+    else:
+        result = False
+    
     return result
 
 def calc_proj(vektor, koord_axlar):
@@ -47,7 +57,24 @@ def calc_proj(vektor, koord_axlar):
     # Här sker själva beräkningen som lagrar
     # resultatet i variabeln result
     # ...
+
+    täljare = dot_product(vektor, koord_axlar[0])
+    nämnare = dot_product(koord_axlar[0], koord_axlar[0])
+
+    y11 = täljare/nämnare*koord_axlar[0][0]
+    y12 = täljare/nämnare*koord_axlar[0][1]
+    y21 = vektor[0]-y11
+    y22 = vektor[1]-y12
+
+    rad1 = np.array([y11,y21])
+    rad2 = np.array([y12,y22])
+
+    result = np.array([rad1.T, rad2.T])
+
     return result
+
+
+
 
 # Test-exempel
 y = np.array([[3], [2]])
@@ -56,6 +83,8 @@ u2 = np.array([-1, 4])
 u = np.array([u1.T, u2.T])
 # Kontrollera hur y och u skrivs ut
 # INNAN du börjar skriva funktionerna
+
+
 
 ### Ändra inget under denna rad
 if is_orthogonal(u):
@@ -73,9 +102,3 @@ if is_orthogonal(u):
     print(f"||u2|| = {norm_u2}")  # Blir 1.21
 else:
     print("Angivna koordinataxlar är inte ortogonala.")
-
-
-u = np.array([1, 2, 3])
-v = np.array([-2, 3, -4])
-dot_product = np.dot(u, v)
-print(dot_product) # Skriver ut -8
