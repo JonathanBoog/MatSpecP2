@@ -36,6 +36,7 @@ def is_orthogonal(koord_axlar):
     # Här sker kontrollen
     # som eventuellt ställer om variabeln result
     # ...
+
     if koord_axlar[0][0] == koord_axlar[1][1] and koord_axlar[0][1] == - koord_axlar[1][0]:
         result = True
     else:
@@ -77,7 +78,7 @@ def calc_proj(vektor, koord_axlar):
 
 
 # Test-exempel
-y = np.array([[3], [2]])
+y = np.array([3, 2])
 u1 = np.array([4, 1])
 u2 = np.array([-1, 4])
 u = np.array([u1.T, u2.T])
