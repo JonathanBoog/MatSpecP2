@@ -37,7 +37,7 @@ def is_orthogonal(koord_axlar):
     # som eventuellt ställer om variabeln result
     # ...
 
-    if koord_axlar[0][0] == koord_axlar[1][1] and koord_axlar[0][1] == - koord_axlar[1][0]:
+    if dot_product(koord_axlar[0],koord_axlar[1]) == 0:
         result = True
     else:
         result = False
