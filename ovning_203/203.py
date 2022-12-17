@@ -18,6 +18,8 @@ B_B = inv_X_T_X@Y_T_Y
 
 B0, B1 = B_B[0], B_B[1]
 
-print(f"{B_B}, B0 = {B0} och B1 = {B1}")
-print("---------------")
-print(f"y= {B1}x + {B0}")
+print(f"""{B_B}, B0 = {B0} och B1 = {B1}
+
+
+y= {B1}x + {B0}
+""")
