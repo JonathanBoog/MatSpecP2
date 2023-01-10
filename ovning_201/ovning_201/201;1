@@ -25,11 +25,13 @@ def get_element(mat_A, mat_B, i, j):
             elementSum = 0
             for n in range(mat_A_shape[1]):
                 elementSum += mat_A[i,n] * mat_B[n,j]
+                print(n)
             row_C.append(elementSum)
         mat_C.append(row_C)
     mat_C = np.array(mat_C)
-    return mat_C[i,j]
-    
+    print(mat_C)
+    return mat_C[i,j]  
+
 # Ingångsvärden, kan förändras
 A = np.array([[1, 2, 3], [4, 5, 6]])  # 2x3-matris
 B = np.array([[2, 3], [4, 5], [6, 7]])  # 3x2-matris
