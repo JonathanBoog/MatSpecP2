@@ -67,10 +67,10 @@ def calc_proj(vektor, koord_axlar):
     y21 = vektor[0]-y11
     y22 = vektor[1]-y12
 
-    rad1 = np.array([y11,y21])
-    rad2 = np.array([y12,y22])
+    kolumn1 = np.array([y11,y21])
+    kolumn2 = np.array([y12,y22])
 
-    result = np.array([rad1.T, rad2.T])
+    result = np.array([kolumn1.T, kolumn2.T])
 
     return result
 
